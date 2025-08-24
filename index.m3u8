@@ -1,0 +1,24 @@
+#EXTM3U
+#EXT-X-VERSION:3
+
+# جودة افتراضية (480p)
+#EXT-X-STREAM-INF:BANDWIDTH=800000,RESOLUTION=854x480,PROGRAM-ID=1,DEFAULT=YES
+#EXTVLCOPT:http-referrer=http://cdnvine.com
+#EXTVLCOPT:http-user-agent=Mozilla/5.0
+http://cdnvine.com:8080/bn1sd/index.m3u8  # تغيير إلى SD بدلاً من HD
+
+# جودة 360p
+#EXT-X-STREAM-INF:BANDWIDTH=500000,RESOLUTION=640x360,PROGRAM-ID=2
+#EXTVLCOPT:http-referrer=http://4rouwanda-shop.store
+http://het114a.4rouwanda-shop.store/live/918454578001/index.m3u8
+
+# جودة 720p
+#EXT-X-STREAM-INF:BANDWIDTH=1500000,RESOLUTION=1280x720,PROGRAM-ID=3
+#EXTVLCOPT:http-referrer=https://forcedtoplay.xyz
+#EXTVLCOPT:http-user-agent=Mozilla/5.0
+https://dokko1new.newkso.ru/dokko1/premium91/mono.m3u8
+
+# جودة 1080p بديلة
+#EXT-X-STREAM-INF:BANDWIDTH=2000000,RESOLUTION=1920x1080,PROGRAM-ID=4
+#EXTVLCOPT:http-referrer=https://footballii.ir
+https://balance.footballii.ir/hls2/b1.m3u8
