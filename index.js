@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Live Stream</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body, html { width: 100%; height: 100%; background: #000; overflow: hidden; }
+
+        /* الحاوية الأساسية */
+        .video-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* الـ iframe الذي يغطي الشاشة بالكامل */
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            /* استخدم 'cover' لملء الشاشة بالكامل أو 'contain' لعدم القص */
+            object-fit: cover; 
+        }
+
+        /* الأزرار بشكل أنيق وعصري */
+        .controls {
+            position: fixed;
+            top: env(safe-area-inset-top); /* مراعاة النتوء */
+            left: 0;
+            width: 100%;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            z-index: 100;
+        }
+
+        button {
+            padding: 8px 16px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            font-size: 13px;
+            backdrop-filter: blur(10px);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="video-wrapper">
+        <iframe 
+            id="stream"
+            src="https://streams.esportex.site/player#YXIvd2My" 
+            allow="autoplay; fullscreen; encrypted-media" 
+            allowfullscreen="true">
+        </iframe>
+    </div>
+
+    <div class="controls">
+        <button onclick="toggleFullscreen()">⛶ ملء الشاشة</button>
+        <button onclick="rotate()">⟳ تدوير</button>
+    </div>
+
+    <script>
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {});
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        function rotate() {
+            if (screen.orientation) {
+                const isPortrait = screen.orientation.type.includes('portrait');
+                screen.orientation.lock(isPortrait ? 'landscape' : 'portrait').catch(() => {});
+            }
+        }
+    </script>
+</body>
+</html>
+
